@@ -33,6 +33,10 @@ return array(
 
     // application components
     'components' => array(
+        'request' => array(
+            'enableCsrfValidation' => true,
+            'enableCookieValidation' => true,
+        ),
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
@@ -46,19 +50,13 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        'db' => array(
-            'connectionString' => 'sqlite:' . dirname(__FILE__) . '/../data/testdrive.db',
-        ),
-        // uncomment the following to use a MySQL database
-        /*
         'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+            'connectionString' => 'mysql:host=localhost;dbname=psfpro',
             'emulatePrepare' => true,
-            'username' => 'root',
+            'username' => 'psfpro',
             'password' => '',
             'charset' => 'utf8',
         ),
-        */
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',

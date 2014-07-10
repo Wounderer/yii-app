@@ -6,8 +6,7 @@ Yii::app()->getClientScript()->registerCssFile('/bootstrap/css/bootstrap.min.css
 Yii::app()->getClientScript()->registerCssFile('/css/index.css');
 //
 Yii::app()->getClientScript()->registerScriptFile('/bootstrap/js/bootstrap.min.js', CClientScript::POS_END);
-//Yii::app()->getClientScript()->registerScriptFile('/js/bootstrap/snippets/table.search.js', CClientScript::POS_END);
-//Yii::app()->getClientScript()->registerScriptFile('/js/javascript.js', CClientScript::POS_END);
+Yii::app()->getClientScript()->registerScriptFile('/js/index.js', CClientScript::POS_END);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +47,7 @@ Yii::app()->getClientScript()->registerScriptFile('/bootstrap/js/bootstrap.min.j
                 'submenuHtmlOptions' => array('class' => 'dropdown-menu',),
                 'encodeLabel' => false,
                 'items' => array(
-                    array('label' => 'Мои сообщения', 'url' => array('message/index'), 'visible' => !Yii::app()->user->isGuest),
+                    array('label' => 'Мои сообщения <span id="messagesCounter" class="badge"></span>', 'url' => array('message/index'), 'visible' => !Yii::app()->user->isGuest),
                 ),
             ));
             ?>
@@ -58,8 +57,10 @@ Yii::app()->getClientScript()->registerScriptFile('/bootstrap/js/bootstrap.min.j
                 'submenuHtmlOptions' => array('class' => 'dropdown-menu',),
                 'encodeLabel' => false,
                 'items' => array(
+                    array('label' => 'Регистрация', 'url' => array('/site/register'), 'visible' => Yii::app()->user->isGuest),
                     array('label' => 'Вход', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-                    array('label' => 'Выход (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+                    array('label' => Yii::app()->user->name, 'url' => array('/'), 'visible' => !Yii::app()->user->isGuest),
+                    array('label' => 'Выход', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
                 ),
             ));
             ?>

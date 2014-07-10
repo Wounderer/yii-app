@@ -2,9 +2,9 @@
 /* @var $this SiteController */
 /* @var $model LoginForm */
 /* @var $form CActiveForm */
-$this->pageTitle = Yii::app()->name . ' - Вход на сайт';
+$this->pageTitle = Yii::app()->name . ' - Регистрация';
 $this->breadcrumbs = array(
-    'Вход на сайт',
+    'Регистрация',
 );
 CHtml::$errorMessageCss = 'text-danger';
 ?>
@@ -19,20 +19,18 @@ CHtml::$errorMessageCss = 'text-danger';
         'class' => 'form-signin',
     ),
 )); ?>
-<h2>Вход на сайт</h2>
-<div class="form-group<?= $model->hasErrors('username') ? ' has-error' : ''; ?>">
-    <?php echo $form->textField($model, 'username', array('class' => 'form-control', 'placeholder' => 'Логин',)); ?>
-    <?php echo $form->error($model, 'username'); ?>
+<h2>Регистрация</h2>
+<div class="form-group<?= $model->hasErrors('name') ? ' has-error' : ''; ?>">
+    <?php echo $form->textField($model, 'name', array('class' => 'form-control', 'placeholder' => 'Имя',)); ?>
+    <?php echo $form->error($model, 'name'); ?>
+</div>
+<div class="form-group<?= $model->hasErrors('login') ? ' has-error' : ''; ?>">
+    <?php echo $form->textField($model, 'login', array('class' => 'form-control', 'placeholder' => 'Логин',)); ?>
+    <?php echo $form->error($model, 'login'); ?>
 </div>
 <div class="form-group<?= $model->hasErrors('password') ? ' has-error' : ''; ?>">
     <?php echo $form->passwordField($model, 'password', array('class' => 'form-control', 'placeholder' => 'Пароль',)); ?>
     <?php echo $form->error($model, 'password'); ?>
 </div>
-<div class="checkbox">
-    <label>
-        <?php echo $form->checkBox($model, 'rememberMe'); ?> <?php echo $model->getAttributeLabel('rememberMe'); ?>
-    </label>
-</div>
-<?php echo CHtml::submitButton('Войти', array('class' => 'btn btn-lg btn-primary btn-block')); ?>
-<a href="/site/register">Регистрация</a>
+<?php echo CHtml::submitButton('Зарегистрироваться', array('class' => 'btn btn-lg btn-primary btn-block')); ?>
 <?php $this->endWidget(); ?>
